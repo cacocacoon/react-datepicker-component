@@ -1,4 +1,5 @@
 const webpack = require("webpack")
+const PrettierPlugin = require("prettier-webpack-plugin")
 const path = require('path')
 const APP_DIR = path.resolve(__dirname, 'src')
 const BUILD_DIR = path.resolve(__dirname, 'dist')
@@ -13,7 +14,7 @@ const config = {
 		rules: [{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
-			loader: 'babel-loader',
+			loader: ['babel-loader', 'eslint-loader'],
 		}]
 	},
 	resolve: {
@@ -26,7 +27,10 @@ const config = {
 		port: 8008,
 		hotOnly: true
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new PrettierPlugin()
+	]
 }
 
 module.exports = config
