@@ -1,5 +1,4 @@
 const webpack = require("webpack")
-const PrettierPlugin = require("prettier-webpack-plugin")
 const path = require('path')
 const APP_DIR = path.resolve(__dirname, 'src')
 const BUILD_DIR = path.resolve(__dirname, 'dist')
@@ -25,12 +24,12 @@ const config = {
 		inline: true,
 		contentBase: BUILD_DIR,
 		port: 8008,
-		hotOnly: true
+		hotOnly: true,
+		watchOptions: {
+			aggregateTimeout: 1000
+		}
     },
-    plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new PrettierPlugin()
-	]
+    plugins: [new webpack.HotModuleReplacementPlugin()]
 }
 
 module.exports = config
