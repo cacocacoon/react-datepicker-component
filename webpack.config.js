@@ -1,5 +1,6 @@
 const webpack = require("webpack")
 const path = require('path')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const APP_DIR = path.resolve(__dirname, 'src')
 const BUILD_DIR = path.resolve(__dirname, 'dist')
 
@@ -14,7 +15,14 @@ const config = {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loader: ['babel-loader', 'eslint-loader'],
-		}]
+		}, {
+            test: /\.scss$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                "css-loader",
+                "sass-loader"
+            ]
+        }]
 	},
 	resolve: {
 		extensions: ['.js', '.jsx']
@@ -29,7 +37,12 @@ const config = {
 			aggregateTimeout: 1000
 		}
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new MiniCssExtractPlugin({
+            filename: "style.css"
+        })
+	]
 }
 
 module.exports = config
