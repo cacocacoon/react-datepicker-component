@@ -96,8 +96,8 @@ function fillMonthData(firstDay, firstDateOfTheMonth, lastDateOfTheMonth) {
 	return monthlyCalendarData
 }
 
-function isSameDate(a, b) {
-	return a[0] === b[0] && a[1] === b[1] && a[2] === b[2]
+function isSameDate(aDate, bDate) {
+	return aDate[0] === bDate[0] && aDate[1] === bDate[1] && aDate[2] === bDate[2]
 }
 
 function tomorrow(date) {
@@ -150,40 +150,7 @@ export function tenYearLater(date) {
 }
 
 function getLastDateOfTheMonth(theYear, theMonth) {
-	const lastDay = (() => {
-		switch (theMonth) {
-			case 1:
-				return 31
-			case 2:
-				if (isLeapYear(theYear)) {
-					return 29
-				}
-
-				return 28
-			case 3:
-				return 31
-			case 4:
-				return 30
-			case 5:
-				return 31
-			case 6:
-				return 30
-			case 7:
-				return 31
-			case 8:
-				return 31
-			case 9:
-				return 30
-			case 10:
-				return 31
-			case 11:
-				return 30
-			case 12:
-				return 31
-			default:
-				throw new Error('error month')
-		}
-	})()
+	const lastDay = new Date(theYear, theMonth, 0).getDate()
 
 	return [theYear, theMonth, lastDay]
 }
