@@ -2,7 +2,7 @@ const webpack = require("webpack")
 const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const APP_DIR = path.resolve(__dirname, 'src')
-const BUILD_DIR = path.resolve(__dirname, 'dist')
+const BUILD_DIR = path.resolve(__dirname, 'docs')
 
 const config = {
     entry: APP_DIR + '/app.jsx',
