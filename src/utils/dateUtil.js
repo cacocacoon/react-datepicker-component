@@ -155,10 +155,6 @@ function getLastDateOfTheMonth(theYear, theMonth) {
 	return [theYear, theMonth, lastDay]
 }
 
-function isLeapYear(year) {
-	return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)
-}
-
 export const WEEK = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 export const MONTH = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
