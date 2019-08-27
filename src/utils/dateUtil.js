@@ -30,7 +30,7 @@ export function getFirstDateOfTheMonth(theYear, theMonth) {
 }
 
 export function getMonthlyCalendarData(selectedDate) {
-	const [theYear, theMonth] = selectedDate.split('-').map(Number)
+	const [theYear, theMonth] = selectedDate
 	// cache
 	if(getMonthlyCalendarData[`${theYear}-${theMonth}`]) {
 		return getMonthlyCalendarData[`${theYear}-${theMonth}`]
@@ -119,9 +119,33 @@ export function oneMonthAgo(date) {
 	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
 }
 
+export function oneYearAgo(date) {
+	const d = new Date(date[0], date[1] - 1, date[2])
+	d.setFullYear(d.getFullYear() - 1)
+	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+}
+
+export function tenYearAgo(date) {
+	const d = new Date(date[0], date[1] - 1, date[2])
+	d.setFullYear(d.getFullYear() - 10)
+	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+}
+
 export function oneMonthLater(date) {
 	const d = new Date(date[0], date[1] - 1, date[2])
 	d.setMonth(d.getMonth() + 1)
+	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+}
+
+export function oneYearLater(date) {
+	const d = new Date(date[0], date[1] - 1, date[2])
+	d.setFullYear(d.getFullYear() + 1)
+	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+}
+
+export function tenYearLater(date) {
+	const d = new Date(date[0], date[1] - 1, date[2])
+	d.setFullYear(d.getFullYear() + 10)
 	return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
 }
 
@@ -167,3 +191,7 @@ function getLastDateOfTheMonth(theYear, theMonth) {
 function isLeapYear(year) {
 	return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)
 }
+
+export const WEEK = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
+export const MONTH = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
