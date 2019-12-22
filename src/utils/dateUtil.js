@@ -1,4 +1,4 @@
-export function getDateOfTheWeek(date = [1233, 8, 5]) {
+function getDateOfTheWeek(date = [1233, 8, 5]) {
 	// Gaussian algorithm
 	const [year, month, day] = date
 	const Y = isJanOrFeb(month) ? year - 1 : year
