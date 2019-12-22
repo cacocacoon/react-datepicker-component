@@ -32,7 +32,7 @@ export function getFirstDateOfTheMonth(theYear, theMonth) {
 export function getMonthlyCalendarData(selectedDate) {
 	const [theYear, theMonth] = selectedDate
 	// cache
-	if(getMonthlyCalendarData[`${theYear}-${theMonth}`]) {
+	if (getMonthlyCalendarData[`${theYear}-${theMonth}`]) {
 		return getMonthlyCalendarData[`${theYear}-${theMonth}`]
 	}
 

@@ -5,7 +5,7 @@ const APP_DIR = path.resolve(__dirname, 'src')
 const BUILD_DIR = path.resolve(__dirname, 'docs')
 
 const config = {
-    entry: APP_DIR + '/app.jsx',
+	entry: APP_DIR + '/app.jsx',
 	output: {
 		path: BUILD_DIR,
 		filename: 'app.js'
@@ -16,13 +16,13 @@ const config = {
 			exclude: /node_modules/,
 			loader: ['babel-loader', 'eslint-loader'],
 		}, {
-            test: /\.scss$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                "css-loader",
-                "sass-loader"
-            ]
-        }]
+			test: /\.scss$/,
+			use: [
+				MiniCssExtractPlugin.loader,
+				"css-loader",
+				"sass-loader"
+			]
+		}]
 	},
 	resolve: {
 		extensions: ['.js', '.jsx']
@@ -36,12 +36,12 @@ const config = {
 		watchOptions: {
 			aggregateTimeout: 1000
 		}
-    },
-    plugins: [
+	},
+	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new MiniCssExtractPlugin({
-            filename: "style.css"
-        })
+			filename: "style.css"
+		})
 	]
 }
 
